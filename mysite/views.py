@@ -62,3 +62,9 @@ def dashboard(request):
 
 def collectors(request):
     return render(request,'site/dashboard/collectors.html')
+
+def registerdonors(request):
+    return render(request,'site/forms/register-donors.html')
+
+def registercollectors(request):
+    return render(request,'site/forms/register-collectors.html')
