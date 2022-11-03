@@ -58,4 +58,7 @@ def signup(request):
      return render(request, 'site/signup.html')
 
 def dashboard(request):
-    return render(request,'site/dashboard.html')
+    return render(request,'site/dashboard/dashboard.html')
+
+def collectors(request):
+    return render(request,'site/dashboard/collectors.html')
