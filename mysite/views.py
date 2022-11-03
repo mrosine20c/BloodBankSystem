@@ -68,3 +68,9 @@ def registerdonors(request):
 
 def registercollectors(request):
     return render(request,'site/forms/register-collectors.html')
+
+def hospitalrequest(request):
+    return render(request,'site/forms/hospital-request-form.html')
+
+def registerpatients(request):
+    return render(request, 'site/forms/register-patients.html')

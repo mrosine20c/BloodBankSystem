@@ -174,7 +174,7 @@ body{
         <ul>
           {% if user.is_authenticated %}
           <li><a style="text-decoration:none;" href="/dashboard"><i class="fas fa-home"></i>Dashboard</a></li>
-
+            
             {% if user.groups.first.name == 'admin'  %}
                 <li><a style="text-decoration:none;" href="/collectors"><i class="fas fa-user"></i>Collectors</a></li>
                 <li><a style="text-decoration:none;" href=""><i class="fas fa-sync-alt"></i>Blood Requested</a></li>
