@@ -37,21 +37,20 @@ def signup(request):
             messages.error(request,'password not match')
             return redirect('signup')
         else:
-             if(User.objects.filter(Q(username="username")).exists):
-                messages.error(request,'User with this username already exist')
-                return redirect('signup')  
+
+            #  if User.objects.filter(Q(username=username)).exists:
+            #     messages.error(request,'User with this username already exist')
+            #     return redirect('signup')  
              group = Group.objects.filter(Q(name="hospital"))
              if(group.exists):
                 group = Group.objects.get(name="hospital")
-                users = User()
-                users.username=username
-                users.password=password
-                users.email=email
+                users = User.objects.create_user(
+                                        email=email, password=password, username=username)
                 users.save()
                 users.groups.add(group)
 
                 messages.error(request,'account created')
-                return redirect('signup')
+                return redirect('login')
              else:
                 messages.error(request,'something went wrong')
                 return redirect('signup')   
