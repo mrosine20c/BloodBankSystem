@@ -31,16 +31,16 @@
   </head>
   <body>
      <header class="continer-fluid ">
-             {% include "./includes/headerTop.html" %}
+             {% include "../includes/headerTop.html" %}
           
         </header>
 
-    <div class="page-wrapper bg-gra-03 p-t-45 p-b-50">
+    <div class="page-wrapper bg-gra-03 p-t-45 p-b-50" style="width:60%;margin: auto;font-style:Arial;font-size:15px;">
         <div class="wrapper wrapper--w790">
             <br><br><br>
-            <div class="card card-5" style="width:60%;margin:auto;">
+            <div class="card card-5">
                 <div class="card-heading">
-                    <h2 class="title">Users Login</h2>
+                    <h2 class="title">Register Donors</h2>
                 </div>
                 {% for message in messages %}
     
@@ -53,33 +53,46 @@
                 <div class="card-body">
                     <form method="POST" >
                         {% csrf_token %}
+                        
                         <div class="form-row">
-                            <div class="name">Username</div>
+                            <div class="name">Blood Type</div>
                             <div class="value">
                                 <div class="input-group">
-                                    <input type="text" name="username" class="input--style-5" id="" placeholder="enter username">
+                                    
+                                    {% comment %} <input type="text" name="blood_type" class="input--style-5" id="" placeholder="enter password to comfirm"> {% endcomment %}
+                            
+                                    {% comment %} <label for="blood_type">Choose a Blood Type:</label> {% endcomment %}
+                                    <select name="blood_type" class="input--style-5">
+                                        <option value="A+">A+</option>
+                                        <option value="A-">A-</option>
+                                        <option value="B+">B+</option>
+                                        <option value="B-">B-</option>
+                                        <option value="AB+">AB+</option>
+                                        <option value="AB-">AB-</option>
+                                        <option value="O+">O+</option>
+                                        <option value="O-">O-</option>
+                                      </select>
 
-                                    <!-- {% render_field form.username class="input--style-5"%} -->
                                 </div>
                             </div>
                         </div>
+  
                         <div class="form-row">
-                            <div class="name">Password</div>
+                            <div class="name">Blood Quantity</div>
                             <div class="value">
                                 <div class="input-group">
-                                    <input type="password" name="password" class="input--style-5" id="" placeholder="enter password">
-                                    <!-- {% render_field form.password class="input--style-5" %} -->
+                                    <input type="text" name="blood_quantity" class="input--style-5" id="" placeholder="enter Blood Quantity">
+                             
                                 </div>
                             </div>
                         </div>
+                        
 
                         <div class="text-center">
-                            <button class="btn btn--radius-2 btn-danger btn-block" type="submit">Login</button>
+                            <button class="btn btn--radius-2 btn-danger btn-block" type="submit">Request</button>
                         </div>
                     </form>
                     <br>
-                    <p style="text-align: center;">Don't have an account? <a style="text-decoration: none;" href="/signup">Register Now</a></p>
-
                 </div>
             </div>
         </div>
