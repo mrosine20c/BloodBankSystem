@@ -17,25 +17,27 @@
 <div class="container">   
 
   
-  <a href='/register-collectors'> Add Collector </a>
+  <a href='/register-donors'> Add Donors </a>
   <table class="table table-bordered">
     <thead>
       <tr>
         <th>Firstname</th>
         <th>Lastname</th>
-        <th>Email</th>
-        <th>Username</th>
-         
+        <th>Phone Number</th>
+        <th>Blood Type</th>
+        <th>Blood Quantity</th>
+
       </tr>
     </thead>
     <tbody>
     
-      {% for collector in list %}
+      {% for list in list %}
       <tr>
-        <td>{{collector.first_name}}</td>
-        <td>{{collector.last_name}}</td>
-        <td>{{collector.email}}</td>
-        <td>{{collector.username}}</td>
+        <td>{{list.first_name}}</td>
+        <td>{{list.last_name}}</td>
+        <td>{{list.phone_number}}</td>
+        <td>{{list.blood_type}}</td>
+        <td>{{list.blood_quantity}}</td>
 
       </tr>  
       {% endfor %}

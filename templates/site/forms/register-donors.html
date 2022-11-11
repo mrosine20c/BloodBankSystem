@@ -1,3 +1,4 @@
+{% extends './master.html' %}
 {%load static%}
 {% load widget_tweaks %}
 <!DOCTYPE html>
@@ -35,6 +36,8 @@
           
         </header>
 
+    {% block content %}
+
     <div class="page-wrapper bg-gra-03 p-t-45 p-b-50" style="width:60%;margin: auto;font-style:Arial;font-size:15px;">
         <div class="wrapper wrapper--w790">
             <br><br><br>
@@ -51,18 +54,29 @@
 
                 {% endfor %}
                 <div class="card-body">
-                    <form method="POST" >
+                    <form method="POST">
                         {% csrf_token %}
 
                         <div class="form-row">
-                            <div class="name">Full Name</div>
+                            <div class="name">First Name</div>
                             <div class="value">
                                 <div class="input-group">
-                                    <input type="text" name="fullname" class="input--style-5" id="" placeholder="Enter full name">
+                                    <input type="text" name="first_name" class="input--style-5" id="" placeholder="Enter first name">
                                   
                                 </div>
                             </div>
                         </div>
+
+                        <div class="form-row">
+                            <div class="name">Last Name</div>
+                            <div class="value">
+                                <div class="input-group">
+                                    <input type="text" name="last_name" class="input--style-5" id="" placeholder="Enter last name">
+                                  
+                                </div>
+                            </div>
+                        </div>
+
                         <div class="form-row">
                             <div class="name">Age</div>
                             <div class="value">
@@ -86,7 +100,7 @@
                             <div class="name">Phone</div>
                             <div class="value">
                                 <div class="input-group">
-                                    <input type="text" name="phone" class="input--style-5" id="" placeholder="enter Phone">
+                                    <input type="text" name="phone_number" class="input--style-5" id="" placeholder="enter Phone">
                                   
                                 </div>
                             </div>
@@ -127,16 +141,16 @@
                         
 
                         <div class="text-center">
-                            <button class="btn btn--radius-2 btn-danger btn-block" type="submit">Signup</button>
+                            <button class="btn btn--radius-2 btn-danger btn-block" type="submit">Register</button>
                         </div>
                     </form>
-                    <br>
-                    <p style="text-align: center;">have an account? <a style="text-decoration: none;" href="/login">Login Now</a></p>
-
+                   
                 </div>
             </div>
         </div>
     </div>
+
+    {% endblock content %}
 
 {% include "blood/footer.html" %}
 <!-- Optional JavaScript -->

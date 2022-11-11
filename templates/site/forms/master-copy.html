@@ -175,24 +175,24 @@ body{
           {% if user.is_authenticated %}
           <li><a style="text-decoration:none;" href="/dashboard"><i class="fas fa-home"></i>Dashboard</a></li>
             
-            {% comment %} {% if user.groups.first.name == 'admin'  %} {% endcomment %}
-                <li><a style="text-decoration:none;" href="collectors"><i class="fas fa-user"></i>Collectors</a></li>
+            {% if user.groups.first.name == 'admin'  %}
+                <li><a style="text-decoration:none;" href="/collectors"><i class="fas fa-user"></i>Collectors</a></li>
                 <li><a style="text-decoration:none;" href=""><i class="fas fa-sync-alt"></i>Blood Requested</a></li>
                 <li><a style="text-decoration:none;" href=""><i class="fas fa-hand-holding-water"></i>Blood Stock</a></li>
-            {% comment %} {% endif %} {% endcomment %}
+            {% endif %}
           <!-- hospital-->
-            {% comment %} {% if user.groups.first.name == "hospital" %} {% endcomment %}
+            {% if user.groups.first.name == "hospital" %}
             
                 <li><a style="text-decoration:none;" href=""><i class="fas fa-sync-alt"></i>Request</a></li>
                 <li><a style="text-decoration:none;" href=""><i class="fas fa-sync-alt"></i>Blood Requested</a></li>
                 <li><a style="text-decoration:none;" href=""><i class="fas fa-sync-alt"></i>Achieved</a></li>
-            {% comment %} {% endif %} {% endcomment %}
+            {% endif %}
                 
-            {% comment %} {% if user.groups.first.name == 'collector' %} {% endcomment %}
+            {% if user.groups.first.name == 'collector' %}
                                            <!-- collector -->
-                <li><a style="text-decoration:none;" href=""><i class="fas fa-hand-holding-medical"></i>Donors</a></li>
+                <li><a style="text-decoration:none;" href=""><i class="fas fa-hand-holding-medical"></i>Donations</a></li>
                 <li><a style="text-decoration:none;" href=""><i class="fas fa-history"></i>History</a></li> 
-            {% comment %} {% endif %} {% endcomment %}
+            {% endif %}
           
           {% endif %}
           </ul> 
