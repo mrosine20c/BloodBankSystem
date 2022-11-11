@@ -161,6 +161,7 @@ body{
         <div class="navbar-collapse collapse w-100 order-3 dual-collapse2">
             <ul class="navbar-nav ml-auto">
                 <li class="nav-item">
+                    <p style="color:white;text-decoration: underline;"> Welcome {{request.user.username}} </p>
                     <a class="nav-link" style="color: white;" href="/logout">Logout &nbsp; <i class="fas fa-power-off"></i></a>
                 </li>
                 
@@ -175,23 +176,25 @@ body{
           {% if user.is_authenticated %}
           <li><a style="text-decoration:none;" href="/dashboard"><i class="fas fa-home"></i>Dashboard</a></li>
             
+          {% comment %} <p> Rbc </p> {% endcomment %}
             {% comment %} {% if user.groups.first.name == 'admin'  %} {% endcomment %}
-                <li><a style="text-decoration:none;" href="collectors"><i class="fas fa-user"></i>Collectors</a></li>
+                <li><a style="text-decoration:none;" href="/collectors"><i class="fas fa-user"></i>Collectors</a></li>
                 <li><a style="text-decoration:none;" href=""><i class="fas fa-sync-alt"></i>Blood Requested</a></li>
-                <li><a style="text-decoration:none;" href=""><i class="fas fa-hand-holding-water"></i>Blood Stock</a></li>
+                <li><a style="text-decoration:none;" href="/rbc-stock"><i class="fas fa-hand-holding-water"></i>Blood Stock</a></li>
             {% comment %} {% endif %} {% endcomment %}
           <!-- hospital-->
+          {% comment %} <p>Hospitals</p> {% endcomment %}
             {% comment %} {% if user.groups.first.name == "hospital" %} {% endcomment %}
             
-                <li><a style="text-decoration:none;" href=""><i class="fas fa-sync-alt"></i>Request</a></li>
-                <li><a style="text-decoration:none;" href=""><i class="fas fa-sync-alt"></i>Blood Requested</a></li>
+                <li><a style="text-decoration:none;" href="/patients"><i class="fas fa-hand-holding-medical"></i>patients</a></li>
+                <li><a style="text-decoration:none;" href=""><i class="fas fa-sync-alt"></i>Blood Request</a></li>
                 <li><a style="text-decoration:none;" href=""><i class="fas fa-sync-alt"></i>Achieved</a></li>
             {% comment %} {% endif %} {% endcomment %}
-                
+                {% comment %} <p style="color:skyblue;"> Collectors</p> {% endcomment %}
             {% comment %} {% if user.groups.first.name == 'collector' %} {% endcomment %}
                                            <!-- collector -->
-                <li><a style="text-decoration:none;" href=""><i class="fas fa-hand-holding-medical"></i>Donors</a></li>
-                <li><a style="text-decoration:none;" href=""><i class="fas fa-history"></i>History</a></li> 
+                <li><a style="text-decoration:none;" href="/donors"><i class="fas fa-hand-holding-medical"></i>Donors</a></li>
+                <li><a style="text-decoration:none;" href="/donors"><i class="fas fa-history"></i>History</a></li> 
             {% comment %} {% endif %} {% endcomment %}
           
           {% endif %}
@@ -202,6 +205,7 @@ body{
 
 
 {% block content %}
+
 
 {% endblock content %}
 

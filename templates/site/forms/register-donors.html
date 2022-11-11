@@ -53,12 +53,25 @@
     </div>
 
                 {% endfor %}
-                <div class="card-body">
-                    <form method="POST">
+                <div class="card-body" style="margin-top:30px;">
+                    <form method="POST" style="
+                    width: 100%;
+                    background-color: smokewhite;
+                    {% comment %} opacity:0.6; {% endcomment %}
+                    {% comment %} position: absolute; {% endcomment %}
+                    {% comment %} transform: translate(-50%,-50%); {% endcomment %}
+                    {% comment %} top: 50%;{% endcomment %}
+                    color: black; 
+                    border-radius: 2px;
+                    padding-top:20px;
+                    backdrop-filter: blur(10px);
+                    border: 2px solid rgba(255,255,255,0.1);
+                    box-shadow: 0 0 40px rgba(8,7,16,0.6);
+                    padding: 50px 35px;">
                         {% csrf_token %}
 
                         <div class="form-row">
-                            <div class="name">First Name</div>
+                            <div class="name">First Name: </div>
                             <div class="value">
                                 <div class="input-group">
                                     <input type="text" name="first_name" class="input--style-5" id="" placeholder="Enter first name">
@@ -66,9 +79,10 @@
                                 </div>
                             </div>
                         </div>
+                        <br>
 
                         <div class="form-row">
-                            <div class="name">Last Name</div>
+                            <div class="name">Last Name : </div>
                             <div class="value">
                                 <div class="input-group">
                                     <input type="text" name="last_name" class="input--style-5" id="" placeholder="Enter last name">
@@ -76,9 +90,10 @@
                                 </div>
                             </div>
                         </div>
+                        <br>
 
                         <div class="form-row">
-                            <div class="name">Age</div>
+                            <div class="name">Age : </div>
                             <div class="value">
                                 <div class="input-group">
                                     <input type="number" name="age" class="input--style-5" id="" placeholder="enter age">
@@ -86,9 +101,10 @@
                                 </div>
                             </div>
                         </div>
+                        <br>
 
                         <div class="form-row">
-                            <div class="name">Body Weight</div>
+                            <div class="name">Body Weight : </div>
                             <div class="value">
                                 <div class="input-group">
                                     <input type="number" name="body_weight" class="input--style-5" id="" placeholder="enter Body Weight">
@@ -96,8 +112,10 @@
                                 </div>
                             </div>
                         </div>
+
+                        <br>
                         <div class="form-row">
-                            <div class="name">Phone</div>
+                            <div class="name">Phone : </div>
                             <div class="value">
                                 <div class="input-group">
                                     <input type="text" name="phone_number" class="input--style-5" id="" placeholder="enter Phone">
@@ -105,6 +123,8 @@
                                 </div>
                             </div>
                         </div>
+
+                        <br>
                         
                         <div class="form-row">
                             <div class="name">Blood Type</div>
@@ -128,9 +148,11 @@
                                 </div>
                             </div>
                         </div>
+
+                        <br>
   
                         <div class="form-row">
-                            <div class="name">Blood Quantity</div>
+                            <div class="name">Blood Quantity (ml)</div>
                             <div class="value">
                                 <div class="input-group">
                                     <input type="text" name="blood_quantity" class="input--style-5" id="" placeholder="enter Blood Quantity">
@@ -140,6 +162,7 @@
                         </div>
                         
 
+                        <br>
                         <div class="text-center">
                             <button class="btn btn--radius-2 btn-danger btn-block" type="submit">Register</button>
                         </div>

@@ -25,14 +25,32 @@
     <br><br>
 <div class="container">   
 
+    <div class="card card-5" style="margin-top:30px; width:60%; margin:auto;">
+        <div class="card-heading">
+            <h2 class="title">Register Collectors</h2>
+        </div>
+
   
-    <div class="card-body">
-        <form method="POST">
+    <div class="card-body" style="margin-top:30px;">
+        <form method="POST" style="
+        width: 100%;
+        background-color: smokewhite;
+        {% comment %} opacity:0.6; {% endcomment %}
+        {% comment %} position: absolute; {% endcomment %}
+        {% comment %} transform: translate(-50%,-50%); {% endcomment %}
+        {% comment %} top: 50%;{% endcomment %}
+        color: black; 
+        border-radius: 2px;
+        padding-top:20px;
+        backdrop-filter: blur(10px);
+        border: 2px solid rgba(255,255,255,0.1);
+        box-shadow: 0 0 40px rgba(8,7,16,0.6);
+        padding: 50px 35px;">
             {% csrf_token %}
 
             
             <div class="form-row">
-                <div class="name">Fist Name</div>
+                <div class="name">Fist Name : </div>
                 <div class="value">
                     <div class="input-group">
                         <input type="text" name="first_name" class="input--style-5" id="" placeholder="enter first name">
@@ -40,8 +58,9 @@
                     </div>
                 </div>
             </div>
+            <br>
             <div class="form-row">
-                <div class="name">Last Name</div>
+                <div class="name">Last Name : </div>
                 <div class="value">
                     <div class="input-group">
                         <input type="text" name="last_name" class="input--style-5" id="" placeholder="enter last name">
@@ -49,9 +68,9 @@
                     </div>
                 </div>
             </div>
-
+            <br>
             <div class="form-row">
-                <div class="name">Email</div>
+                <div class="name">Email : </div>
                 <div class="value">
                     <div class="input-group">
                         <input type="email" name="email" class="input--style-5" id="" placeholder="enter email">
@@ -59,8 +78,9 @@
                     </div>
                 </div>
             </div>
+            <br>
             <div class="form-row">
-                <div class="name">Username</div>
+                <div class="name">Username : </div>
                 <div class="value">
                     <div class="input-group">
                         <input type="text" name="username" class="input--style-5" id="" placeholder="enter username">
@@ -68,9 +88,10 @@
                     </div>
                 </div>
             </div>
+            <br>
 
             <div class="form-row">
-                <div class="name">Password</div>
+                <div class="name">Password : </div>
                 <div class="value">
                     <div class="input-group">
                         <input type="password" name="password" class="input--style-5" id="" placeholder="enter password">
@@ -78,8 +99,9 @@
                     </div>
                 </div>
             </div>
+            <br>
             <div class="form-row">
-                <div class="name">Confirm Password</div>
+                <div class="name">Confirm Password : </div>
                 <div class="value">
                     <div class="input-group">
                         <input type="password" name="cpassword" class="input--style-5" id="" placeholder="enter password to comfirm">
@@ -87,6 +109,7 @@
                     </div>
                 </div>
             </div>
+            <br>
 
             <div class="text-center">
                 <button class="btn btn--radius-2 btn-danger btn-block" type="submit">Register </button>

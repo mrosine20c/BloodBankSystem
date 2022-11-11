@@ -28,7 +28,7 @@ class Patients(models.Model):
     phone_number = models.CharField(max_length=50) 
     blood_type = models.CharField(max_length =5)
     blood_quantity = models.IntegerField()
-    hospital=models.ForeignKey(User,on_delete=models.CASCADE) 
+    hospital=models.CharField(max_length= 100)
 
     class Meta:
         db_table = "patients"
@@ -44,7 +44,7 @@ class HospitalStock(models.Model):
         db_table = "hospital_stock"
 
 
-class rbc_stock (models.Model):
+class RbcStock(models.Model):
     blood_type = models.CharField(max_length =5)
     blood_quantity = models.IntegerField()
 
@@ -52,7 +52,7 @@ class rbc_stock (models.Model):
         db_table = "rbc_stock"
 
 
-class Hospital_requests(models.Model):
+class HospitalRequests(models.Model):
     blood_type = models.CharField(max_length =5)
     blood_quantity = models.IntegerField()
     hospital=models.ForeignKey(User,on_delete=models.CASCADE)

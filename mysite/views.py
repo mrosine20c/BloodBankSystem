@@ -59,7 +59,32 @@ def signup(request):
      return render(request, 'site/signup.html')
 
 def dashboard(request):
-    return render(request,'site/dashboard/dashboard.html')
+
+    bloodA1 = models.RbcStock.objects.get(blood_type="A+")
+    bloodA0 = models.RbcStock.objects.get(blood_type="A-")
+    bloodAB1 = models.RbcStock.objects.get(blood_type="AB+")
+    bloodAB0 = models.RbcStock.objects.get(blood_type="AB-")
+    bloodB1 = models.RbcStock.objects.get(blood_type="B+")
+    bloodB0 = models.RbcStock.objects.get(blood_type="B-")
+    bloodO1 = models.RbcStock.objects.get(blood_type="O+")
+    bloodO0 = models.RbcStock.objects.get(blood_type="O-")
+
+    donors = models.Donors.objects.count()
+    totalblood= bloodA1.blood_quantity + bloodA0.blood_quantity +bloodB1.blood_quantity+bloodB0.blood_quantity+bloodAB1.blood_quantity+bloodAB0.blood_quantity+bloodO1.blood_quantity+bloodO0.blood_quantity
+    
+    context = {'bloodA1':bloodA1,
+                'bloodA0':bloodA0,
+                'bloodAB1':bloodAB1,
+                'bloodA0':bloodAB0,
+                'bloodB1':bloodB1,
+                'bloodA0':bloodB0,
+                'bloodO1':bloodO1,
+                'bloodO0':bloodO0,
+                'totaldonors':donors, 
+                'totalblood':totalblood
+                
+                }
+    return render(request,'site/dashboard/dashboard.html',context)
 
 def collectors(request):
     list = User.objects.all()
@@ -128,9 +153,18 @@ def registerdonors(request):
             # created_by = request.user.id
 
         )
+
+        # update rbc stock
+        d= models.RbcStock.objects.get(blood_type=blood_type)
+        d.blood_quantity = d.blood_quantity + int(blood_quantity)
+        d.save()
+
         donors.save()
+
+       
+
         messages.error(request,'donor added suscessfully')
-        return redirect('donors')
+        return redirect('/donors')
     else:
         return render(request, 'site/forms/register-donors.html')
     
@@ -140,6 +174,48 @@ def collectors(request):
     context= {'list':list}
     return render(request,'site/dashboard/collectors.html',context)
 
+
+def patients(request):
+    list = models.Patients.objects.all()
+    context= {'list':list}
+    return render(request,'site/dashboard/patients.html',context)
+
+
+def registerpatients(request):
+    if(request.method=='POST'):
+        first_name=request.POST.get('first_name')
+        last_name = request.POST.get('last_name')
+        phone_number = request.POST.get('phone_number')
+        age= request.POST.get('age')
+        body_weight = request.POST.get('body_weight')
+        phone_number=request.POST.get('phone_number')
+        blood_type=request.POST.get('blood_type')
+        blood_quantity=request.POST.get('blood_quantity')
+
+        patients= models.Patients(
+            first_name= first_name,
+            last_name= last_name,
+            age = age,
+            body_weight= body_weight,
+            phone_number= phone_number,
+            blood_type= blood_type,
+            blood_quantity= blood_quantity,
+            hospital= request.user.username
+            # created_by = request.user.id
+
+        )
+        patients.save()
+        messages.error(request,'patient added successfully')
+        return redirect('/patients')
+    else:
+        return render(request, 'site/forms/register-patients.html')
+    
+ 
+def rbcstock(request):
+    stock = models.RbcStock.objects.all()
+    context = {'stock':stock}
+    return render(request,'site/dashboard/rbc_stock.html',context)
+    
 # def registercollectors(request):
 #     return render(request,'site/forms/register-collectors.html')
 
